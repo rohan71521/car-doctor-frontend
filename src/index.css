@@ -1,68 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* 
+=================
+variables
+=================
+*/
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --main-color: #FF3811;
+    --white-color: #fff;
+    --black-color: #000
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+
+/* 
+==========================
+active class for NavLinks 
+==========================
+*/
+.active {
+    color: var(--main-color);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
+/* 
+================
+shared styles
+================
+ */
+h1{
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+/* Media query for mid devices */
+@media only screen and (min-width: 576px) and (max-width: 900px) {
+    h1 {
+        /* Adjust styles for small devices */
+        font-size: 30px;
+    }
+}
+/* Media query for small devices */
+@media only screen and (max-width: 576px) {
+    h1 {
+        /* Adjust styles for small devices */
+        font-size: 20px;
+    }
+}
+/* 
+paragraph
+ */
+p{
+    font-size: 16px;
+}
+/* Media query for mid devices */
+@media only screen and (min-width: 576px) and (max-width: 900px) {
+    p {
+        /* Adjust styles for small devices */
+        font-size: 14px;
+    }
+}
+/* Media query for small devices */
+@media only screen and (max-width: 576px) {
+    p {
+        /* Adjust styles for small devices */
+        font-size: 12px;
+    }
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+
+/* 
+=========================
+ button 
+=========================
+*/
+.button{
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: color 0.2s ease-in, background 0.2s ease-in, transform 0.2s ease-in;
+}
+.button:hover{
+    transform: scale(0.95);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+/* Media query for small devices */
+@media only screen and (max-width: 576px) {
+    .button{
+        /* Adjust styles for small devices */
+        padding: 4px 8px; 
+        font-size: 12px;
+        border-radius: 3px;
+    }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+
+
+/* 
+=========================
+primary outline button 
+=========================
+*/
+.primary-outline-button {
+    border: 1px solid var(--main-color); 
+    background: transparent;
+    color: var(--main-color);   
 }
+
+.primary-outline-button:hover {
+    color: var(--white-color);
+    background: var(--main-color);
+
+}
+
+
+/* 
+=========================
+primary fill button 
+=========================
+*/
+.primary-fill-button {
+    border: 1px solid var(--main-color);
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.primary-fill-button:hover {
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    background: transparent;
+}
+
+
+
+/* 
+=========================
+white outline button 
+=========================
+*/
+.white-outline-button {
+    border: 1px solid var(--white-color);
+    background: transparent;
+    color: var(--white-color);
+}
+
+.white-outline-button:hover {
+    color: var(--white-color);
+    background: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+
+
