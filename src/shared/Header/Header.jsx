@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+
 import logo from '../../assets/icons/logo.svg'
 
 
@@ -6,14 +6,14 @@ function Header() {
     
 
     const links = <>
-    <NavLink to="/" className="lg:mr-7 font-bold hover:text-theme-color">Home</NavLink>
-    <NavLink to="/about" className="lg:mr-7 font-bold hover:text-theme-color">About</NavLink>
-    <NavLink to="/services" className="lg:mr-7 font-bold hover:text-theme-color">Services</NavLink>
-    <NavLink to="/blog" className="lg:mr-7 font-bold hover:text-theme-color">Blog</NavLink>
-    <NavLink to="/contact" className="lg:mr-7 font-bold hover:text-theme-color">Contact</NavLink>
+    <a href="#home" className="lg:mr-7 font-bold hover:text-theme-color">Home</a>
+    <a href="#about" className="lg:mr-7 font-bold hover:text-theme-color">About</a>
+    <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Services</a>
+    <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Blog</a>
+    <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Contact</a>
     </>
     return(
-<div className="navbar bg-base-100 pb-5">
+<div id='home' className="navbar bg-base-100 pb-5">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

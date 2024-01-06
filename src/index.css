@@ -49,6 +49,45 @@ h1{
         font-size: 20px;
     }
 }
+h2{
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1;
+}
+/* Media query for mid devices */
+@media only screen and (min-width: 576px) and (max-width: 900px) {
+    h2 {
+        /* Adjust styles for small devices */
+        font-size: 24px;
+    }
+}
+/* Media query for small devices */
+@media only screen and (max-width: 576px) {
+    h2 {
+        /* Adjust styles for small devices */
+        font-size: 18px;
+    }
+}
+h4{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+}
+/* Media query for mid devices */
+@media only screen and (min-width: 576px) and (max-width: 900px) {
+    h4 {
+        /* Adjust styles for small devices */
+        font-size: 18;
+    }
+}
+/* Media query for small devices */
+@media only screen and (max-width: 576px) {
+    h4 {
+        /* Adjust styles for small devices */
+        font-size: 17px;
+    }
+}
+    
 /* 
 paragraph
  */

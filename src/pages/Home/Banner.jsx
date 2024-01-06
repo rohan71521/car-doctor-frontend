@@ -23,6 +23,8 @@ function Banner() {
     setCurrentIndex(newIndex);
   };
 
+
+
   return (
     <div className="w-full h-[50vh] lg:h-[80vh] rounded overflow-hidden relative">
       {banners.map((banner, index) => (
@@ -56,6 +58,7 @@ function Banner() {
         </div>
       ))}
     </div>
+
   );
 }
 
