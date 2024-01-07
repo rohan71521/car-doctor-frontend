@@ -13,7 +13,7 @@ function Services() {
     },[])
     
     return(
-        <div className="py-10">
+        <div className="py-10" id="services">
             <h4 className="text-center text-theme-color">Services</h4>
             <h2 className="text-center py-5">Our Service Area</h2>
             <p className="text-center mx-auto max-w-lg pb-7">the majority have suffered alteration in some form, by injected humour,

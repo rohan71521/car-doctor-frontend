@@ -8,7 +8,7 @@ function Header() {
     const links = <>
     <a href="#home" className="lg:mr-7 font-bold hover:text-theme-color">Home</a>
     <a href="#about" className="lg:mr-7 font-bold hover:text-theme-color">About</a>
-    <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Services</a>
+    <a href="#services" className="lg:mr-7 font-bold hover:text-theme-color">Services</a>
     <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Blog</a>
     <a href="#" className="lg:mr-7 font-bold hover:text-theme-color">Contact</a>
     </>
