@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import loginImage from '../../assets/images/login/login.svg'
 import { FaRegEye,  FaRegEyeSlash  } from "react-icons/fa6";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaPhone } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../contextAPI/AuthContext';
 
 function Register() {
-    const [hidePassword, setHidePassword] = useState(false)
+    const [hidePassword, setHidePassword] = useState(false);
+    const {signUp, loading, setLoading} = useContext(UserContext);
 
     
     const handleRegister= (e) =>{
@@ -14,8 +16,28 @@ function Register() {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const user = {email, password}
-        console.log(user);
+        signUp(email, password)
+        .then(CurrentUser => {
+            setLoading(false)
+            console.log(CurrentUser.user);
+
+        })
+        .catch(error => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            if (error) {
+                setLoading(false)
+            }
+            console.log(errorCode, errorMessage);
+        })
+
+        
+    }
+
+    if (loading) {
+        return (
+            <div className='w-full h-screen flex justify-center items-center'><span className="loading loading-spinner text-theme-color"></span></div>
+        )
     }
 
     return (
@@ -79,7 +101,7 @@ function Register() {
                   <h5 className='text-center font-bold capitalize'>or sign up with</h5>
                   <div className='flex justify-center items-center gap-5 py-5 text-xl'>
                     <Link to={"#"} className='btn btn-circle'><FaFacebookF /></Link>
-                    <Link to={"#"} className='btn btn-circle'><FaLinkedinIn /></Link>
+                    <Link to={"#"} className='btn btn-circle'><FaPhone /></Link>
                     <Link to={"#"} className='btn btn-circle'><FcGoogle /></Link>
                   </div>
                   <p
