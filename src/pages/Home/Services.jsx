@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 
@@ -7,7 +8,7 @@ function Services() {
     const [services, setSerevices] = useState([]);
 
     useEffect(()=>{
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setSerevices(data))
     },[])
@@ -30,8 +31,9 @@ function Services() {
 
                             <div className="flex justify-between items-center text-theme-color">
                                 <p className="font-bold "> ${service.price}</p>
-                                 <div className=" btn btn-circle text-theme-color
-                                hover:text-second-color"><FaArrowRight /></div>
+                                 <Link to={`service_details/${service._id}`}
+                                  className=" btn btn-circle text-theme-color
+                                hover:text-second-color"><FaArrowRight /></Link>
                             </div>
                         </div>
                     ))

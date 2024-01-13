@@ -8,7 +8,8 @@ export default {
     colors:{
       'theme-color': '#FF3811',
       'second-color':'#151515',
-      'third-color':'#fff'
+      'third-color':'#fff',
+      'shadow-color':'#F3F3F3'
     },
     extend: {}
   },
