@@ -4,8 +4,9 @@ import './index.css'
 import {
   RouterProvider,
 } from "react-router-dom";
-import { router } from './Routes';
+
 import AuthContext from './contextAPI/AuthContext';
+import { router } from './Routes/Routes';
 
 
 

@@ -3,12 +3,13 @@ import loginImage from '../../assets/images/login/login.svg'
 import { FaRegEye,  FaRegEyeSlash  } from "react-icons/fa6";
 import { FaFacebookF, FaPhone } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contextAPI/AuthContext';
 
 function Register() {
     const [hidePassword, setHidePassword] = useState(false);
-    const {signUp, loading, setLoading} = useContext(UserContext);
+    const {signUp, loading, setLoading, locationState} = useContext(UserContext);
+    const navigate = useNavigate()
 
     
     const handleRegister= (e) =>{
@@ -20,7 +21,9 @@ function Register() {
         .then(CurrentUser => {
             setLoading(false)
             console.log(CurrentUser.user);
-
+            if (CurrentUser) {
+                navigate(locationState ? locationState : "/" )
+            }
         })
         .catch(error => {
             const errorCode = error.code;

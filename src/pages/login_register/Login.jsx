@@ -3,12 +3,18 @@ import loginImage from '../../assets/images/login/login.svg'
 import { FaRegEye,  FaRegEyeSlash  } from "react-icons/fa6";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link,   useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contextAPI/AuthContext';
+import AnotherHeader from '../../shared/Header/AnotherHeader';
 
 function Login() {
     const [hidePassword, setHidePassword] = useState(false);
-    const {login, loading, setLoading } = useContext(UserContext);
+    const {login, loading, setLoading, user, setLocationState } = useContext(UserContext);
+
+    const location = useLocation();
+    setLocationState(location.state)
+    console.log(location);
+    const navigate = useNavigate()
 
     const handleLogin= (e) =>{
         e.preventDefault();
@@ -18,7 +24,12 @@ function Login() {
         login(email, password)
         .then(CurrentUser => {
             setLoading(false)
-            console.log(CurrentUser.user);
+            if (CurrentUser) {
+                console.log(CurrentUser.user);
+            }
+            if (CurrentUser) {
+                navigate(location?.state ? location?.state : "/" )
+            }
 
         })
         .catch(error => {
@@ -39,9 +50,11 @@ function Login() {
         )
     }
 
+   
     return(
-        <div className=' min-h-screen md:h-screen w-full py-10'>
-            <div className='h-full w-full gap-20 justify-center items-center flex flex-col md:flex-row'>
+        <div className=' min-h-screen md:h-screen w-full'>
+            <AnotherHeader></AnotherHeader>
+            <div className='py-10 w-full  gap-20 justify-center items-center flex flex-col md:flex-row'>
                 <img className='md:w-1/3' src={loginImage} alt="Login Image" />
 
                 <div className='border md:w-1/3 py-5'>

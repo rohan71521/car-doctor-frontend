@@ -10,7 +10,7 @@ function SharedBanner({heading , route}) {
                  src={image} alt="" />
                  <div className='w-full h-full absolute top-0 left-0 bg-second-color opacity-70'></div>
                  <h2 className='text-third-color -translate-y-1/2 absolute top-1/2 left-2 md:left-4'>{heading}</h2>
-                <div className='bg-theme-color p-4  absolute bottom-0 left-1/2 -translate-x-1/2'>
+                <div className='bg-theme-color p-1 md:p-4 absolute bottom-0 left-1/2 -translate-x-1/2'>
                 <p className='text-third-color font-bold'>{route}</p>
                 </div>
             </div>

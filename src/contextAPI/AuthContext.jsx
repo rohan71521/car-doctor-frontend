@@ -11,6 +11,7 @@ export const UserContext = createContext(null);
 function AuthContext({children}) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [locationState, setLocationState] = useState(false);
 
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
@@ -32,7 +33,7 @@ function AuthContext({children}) {
     }
 
     const logOut = () => {
-        loading(true);
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -45,7 +46,9 @@ function AuthContext({children}) {
         setUser,
         setLoading,
         loading,
-        user
+        user,
+        setLocationState,
+        locationState
     }
 
     return(

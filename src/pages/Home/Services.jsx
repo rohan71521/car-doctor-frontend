@@ -23,18 +23,19 @@ function Services() {
 
             <div className="grid grid-cols-2  md:grid-cols-3 gap-3">
                 {
-                    services.map(service => (
-                        <div key={service._id}
-                        className="border-neutral-300 border rounded-md p-1 md:p-5 flex flex-col">
+                    services.map((service, indx) => (
+                        <div key={`service${indx}`}
+                        className="bg-shadow-color border-neutral-300 border rounded-md p-1 md:p-5 flex flex-col">
                              <img className=" rounded-md md:h-40 h-24 lg:h-60 w-full" src={service.img} alt="" />
                             <h4 className="py-4 flex-grow">{service.title}</h4>
 
                             <div className="flex justify-between items-center text-theme-color">
                                 <p className="font-bold "> ${service.price}</p>
-                                 <Link to={`service_details/${service._id}`}
-                                  className=" btn btn-circle text-theme-color
-                                hover:text-second-color"><FaArrowRight /></Link>
+                                 <Link to={`/service_details/${service._id}`}
+                                  className=" btn btn-circle text-theme-color hover:bg-theme-color hover:text-shadow-color
+                            "><FaArrowRight /></Link>
                             </div>
+                        
                         </div>
                     ))
                 }
